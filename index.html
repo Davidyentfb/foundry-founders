@@ -189,6 +189,52 @@ section{padding:72px 0}
 .step h3{margin:12px 0 6px;font-size:17px}
 .step p{margin:0;color:var(--muted);font-size:14px;line-height:1.7}
 
+/* The Order */
+.hero-emblem{margin-bottom:28px}
+.hero-emblem svg{width:138px;height:138px;display:block}
+@media(max-width:640px){.hero-emblem svg{width:112px;height:112px}}
+.order{background:var(--charcoal);color:#ece8dd;border-top:1px solid #2c2c2e;border-bottom:1px solid #2c2c2e}
+.order .sec-head h2{color:#fff}
+.order .sec-head p{color:#c9c4b4;font-size:16.5px}
+.order .kicker{color:var(--gold)}
+.preamble{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:500;font-size:clamp(23px,3vw,33px);line-height:1.42;text-align:center;color:#f2efe8;max-width:880px;margin:4px auto 8px;padding:0 8px}
+.preamble .pq{color:var(--gold);font-style:normal}
+.order-sub{display:flex;align-items:center;gap:16px;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);font-weight:800;margin:54px 0 22px;text-align:center}
+.order-sub::before,.order-sub::after{content:"";flex:1;height:1px;background:#2c2c2e}
+.purpose-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:14px 20px}
+@media(max-width:700px){.purpose-grid{grid-template-columns:1fr}}
+.purpose-grid li{border:1px solid #2c2c2e;background:#131315;padding:18px 20px 18px 46px;position:relative;font-size:15px;color:#ddd8ca;line-height:1.6}
+.purpose-grid li::before{content:"";position:absolute;left:21px;top:27px;width:7px;height:7px;background:var(--gold);transform:rotate(45deg)}
+.pillar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:820px){.pillar-grid{grid-template-columns:1fr}}
+.pillar{border:1px solid #2c2c2e;border-top:3px solid var(--gold);background:#131315;padding:26px 24px;text-align:center}
+.pillar h4{font-family:"Cormorant Garamond",serif;font-size:27px;margin:0 0 6px;color:#fff;font-weight:600}
+.pillar p{margin:0;color:#a8a294;font-size:14px;line-height:1.65}
+.virtue-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:820px){.virtue-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:460px){.virtue-grid{grid-template-columns:1fr}}
+.virtue{border:1px solid #2c2c2e;background:#131315;padding:20px 16px;text-align:center}
+.virtue h4{font-family:"Cormorant Garamond",serif;font-size:23px;margin:0 0 4px;color:#e9dcc0;font-weight:600}
+.virtue span{font-size:13px;color:#a8a294}
+.degree-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:820px){.degree-grid{grid-template-columns:1fr}}
+.degree{border:1px solid #2c2c2e;background:#131315;padding:24px}
+.degree .deg-num{font-family:"Cormorant Garamond",serif;font-size:15px;letter-spacing:.34em;color:var(--gold);font-weight:700}
+.degree h4{font-family:"Cormorant Garamond",serif;font-size:25px;margin:6px 0 6px;color:#fff;font-weight:600}
+.degree p{margin:0;color:#a8a294;font-size:14px;line-height:1.65}
+.station-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:820px){.station-grid{grid-template-columns:1fr}}
+.station{display:flex;gap:18px;align-items:flex-start;border:1px solid #2c2c2e;background:#131315;padding:20px 22px}
+.station svg{width:62px;height:62px;flex-shrink:0}
+.station h4{font-family:"Cormorant Garamond",serif;font-size:23px;margin:0;color:#fff;line-height:1.15;font-weight:600}
+.station .sym{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:800;margin:4px 0 6px}
+.station p{margin:0;font-size:14px;color:#a8a294;line-height:1.6}
+.order-close{text-align:center}
+.order-close .order-sub{margin-top:54px}
+.forge-line{color:#c9c4b4;font-size:15.5px;max-width:640px;margin:0 auto;line-height:1.7}
+.forge-line strong{color:#fff;font-family:"Cormorant Garamond",serif;font-size:19px;letter-spacing:.04em}
+.equality{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:500;font-size:clamp(20px,2.6vw,27px);color:#f2efe8;max-width:760px;margin:34px auto 0;line-height:1.45}
+
 /* Founder reference */
 .founder-ref{background:var(--surface2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .ref-table{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--line);overflow:hidden}
@@ -226,6 +272,7 @@ footer a{color:var(--gold)}
     </a>
     <nav>
       <a href="#structure">Structure</a>
+      <a href="#order">The Order</a>
       <a href="#branches">Branches</a>
       <a href="#standards">Documentation</a>
       <a href="#founder-reference">Distribution</a>
@@ -239,6 +286,41 @@ footer a{color:var(--gold)}
   <div class="hero">
     <div class="hero-inner">
       <div>
+        <div class="hero-emblem">
+          <svg viewBox="0 0 240 240" role="img" aria-label="Emblem of The Foundry: a crucible pouring molten gold over an iron anvil, within a circular badge lettered THE FOUNDRY">
+            <defs>
+              <path id="foundryRim" d="M120,120 m-94,0 a94,94 0 1,1 188,0 a94,94 0 1,1 -188,0" fill="none"/>
+              <linearGradient id="moltenGold" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#eed9a0"/>
+                <stop offset="1" stop-color="#c39a4a"/>
+              </linearGradient>
+            </defs>
+            <circle cx="120" cy="120" r="118" fill="#0a0a0b"/>
+            <circle cx="120" cy="120" r="115" fill="none" stroke="#c9a86a" stroke-width="2"/>
+            <circle cx="120" cy="120" r="84" fill="none" stroke="#c9a86a" stroke-width="1"/>
+            <text font-family="'Cormorant Garamond',Georgia,serif" font-size="16.5" font-weight="600" letter-spacing="5" fill="#c9a86a"><textPath href="#foundryRim" startOffset="25%" text-anchor="middle">THE FOUNDRY</textPath></text>
+            <path d="M20,113 l6,7 -6,7 -6,-7 Z" fill="#c9a86a"/>
+            <path d="M220,113 l6,7 -6,7 -6,-7 Z" fill="#c9a86a"/>
+            <path d="M120,213 l5,6 -5,6 -5,-6 Z" fill="#c9a86a"/>
+            <g transform="rotate(16 104 78)">
+              <path d="M76,60 L84,96 Q104,106 124,96 L132,60" fill="#101013" stroke="#c9a86a" stroke-width="2" stroke-linejoin="round"/>
+              <ellipse cx="104" cy="60" rx="28" ry="7" fill="none" stroke="#c9a86a" stroke-width="2"/>
+              <path d="M80.5,76 L127.5,76" stroke="#c9a86a" stroke-width="1" opacity=".65"/>
+            </g>
+            <path d="M133,70 C142,96 144,120 141,146 L135,146 C137,120 135,96 129,74 Z" fill="url(#moltenGold)"/>
+            <circle cx="149" cy="98" r="1.8" fill="#d9b877"/>
+            <circle cx="151" cy="122" r="1.4" fill="#d9b877"/>
+            <path d="M138,146 L130,137 M138,146 L138,133 M138,146 L147,137" stroke="#d9b877" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M74,148 H142 L168,155 Q172,157 168,159.5 L142,160 H74 Z" fill="#101013" stroke="#c9a86a" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M96,160 H132 L127,174 H101 Z" fill="#101013" stroke="#c9a86a" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M88,186 L93,174 H135 L140,186 Z" fill="#101013" stroke="#c9a86a" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M64,190 H176" stroke="#c9a86a" stroke-width="1" opacity=".55"/>
+            <path d="M88,108 L90,114 L96,116 L90,118 L88,124 L86,118 L80,116 L86,114 Z" fill="#c9a86a" opacity=".9"/>
+            <path d="M166,98 L167.5,102.5 L172,104 L167.5,105.5 L166,110 L164.5,105.5 L160,104 L164.5,102.5 Z" fill="#c9a86a" opacity=".9"/>
+            <circle cx="70" cy="140" r="1.2" fill="#c9a86a" opacity=".7"/>
+            <circle cx="178" cy="130" r="1.2" fill="#c9a86a" opacity=".7"/>
+          </svg>
+        </div>
         <div class="eyebrow">Private Application Portal — By Invitation &amp; Token Only</div>
         <h1>The house that<br><em>holds the work.</em></h1>
         <p class="lead">The Foundry is the parent fraternal organization at the center of the trust structure. This portal is where members of each branch submit their information, documentation, and applications — each section secured by its own access token, each submission delivered directly to the founders.</p>
@@ -297,6 +379,91 @@ footer a{color:var(--gold)}
           <div><strong>The Equity Engine</strong> &nbsp;<span>100s of sub-models calibrated to what each venture receives</span></div>
           <span>Service-for-equity · Revenue share · License + equity · Network tiers</span>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE ORDER -->
+  <section class="order" id="order">
+    <div class="wrap">
+      <div class="sec-head" style="margin-left:auto;margin-right:auto;text-align:center">
+        <div class="kicker">The Order</div>
+        <h2>Forged in fire, bound to service</h2>
+        <p>The Foundry — a fraternal Order operating as a charitable trust devoted to public service.</p>
+      </div>
+
+      <blockquote class="preamble"><span class="pq" aria-hidden="true">&ldquo;</span>As iron is shaped in the fire of a foundry, so members are shaped through discipline, learning, and service, and in turn help shape their communities.<span class="pq" aria-hidden="true">&rdquo;</span></blockquote>
+
+      <div class="order-sub">Charitable Purposes</div>
+      <ul class="purpose-grid">
+        <li>Youth mentorship, education, and workforce development</li>
+        <li>Financial literacy and wealth-building education</li>
+        <li>Relief of poverty and hardship in the community</li>
+        <li>Scholarships and support for education and the trades</li>
+      </ul>
+
+      <div class="order-sub">The Three Pillars</div>
+      <div class="pillar-grid">
+        <div class="pillar"><h4>Brotherhood</h4><p>Treating every member with respect, loyalty, and goodwill.</p></div>
+        <div class="pillar"><h4>Relief</h4><p>Serving those in need through the Order&rsquo;s charitable work.</p></div>
+        <div class="pillar"><h4>Truth</h4><p>Acting with honesty and integrity in all dealings.</p></div>
+      </div>
+
+      <div class="order-sub">The Four Virtues</div>
+      <div class="virtue-grid">
+        <div class="virtue"><h4>Temperance</h4><span>Self-control</span></div>
+        <div class="virtue"><h4>Fortitude</h4><span>Courage and perseverance</span></div>
+        <div class="virtue"><h4>Prudence</h4><span>Sound judgment</span></div>
+        <div class="virtue"><h4>Justice</h4><span>Fairness to all</span></div>
+      </div>
+
+      <div class="order-sub">The Degrees</div>
+      <div class="degree-grid">
+        <div class="degree"><span class="deg-num">I</span><h4>Apprentice</h4><p>Completes orientation and the Order&rsquo;s foundational education.</p></div>
+        <div class="degree"><span class="deg-num">II</span><h4>Journeyman</h4><p>Completes service hours and demonstrates proficiency in the Order&rsquo;s principles and programs.</p></div>
+        <div class="degree"><span class="deg-num">III</span><h4>Master Smith</h4><p>Completes additional service hours, mentors at least one Apprentice, and is approved by the Board.</p></div>
+      </div>
+
+      <div class="order-sub">The Eight Stations</div>
+      <div class="station-grid">
+        <div class="station">
+          <svg viewBox="0 0 64 64" role="img" aria-label="Medallion of the Bell, symbol of The Face"><circle cx="32" cy="32" r="30" fill="#0b0b0c"/><circle cx="32" cy="32" r="29" fill="none" stroke="#c9a86a" stroke-width="1.4"/><circle cx="32" cy="32" r="24.5" fill="none" stroke="#c9a86a" stroke-width=".6" opacity=".65"/><g fill="none" stroke="#d9bc7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="15" r="1.8"/><path d="M32,17 C26,17 23,21 23,27 V33 L20,39 H44 L41,33 V27 C41,21 38,17 32,17 Z"/><path d="M32,39 v2"/><circle cx="32" cy="43.5" r="2.2"/></g></svg>
+          <div><h4>The Face</h4><div class="sym">Symbol — The Bell</div><p>Elected to speak for the Order, preside at meetings, and represent it publicly.</p></div>
+        </div>
+        <div class="station">
+          <svg viewBox="0 0 64 64" role="img" aria-label="Medallion of the Mold, symbol of The Founder"><circle cx="32" cy="32" r="30" fill="#0b0b0c"/><circle cx="32" cy="32" r="29" fill="none" stroke="#c9a86a" stroke-width="1.4"/><circle cx="32" cy="32" r="24.5" fill="none" stroke="#c9a86a" stroke-width=".6" opacity=".65"/><g fill="none" stroke="#d9bc7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="17" y="21" width="30" height="22"/><path d="M17,32 H47"/><path d="M28,21 L32,27 L36,21"/><circle cx="32" cy="32" r="5"/><circle cx="21" cy="25" r="1.2" fill="#d9bc7a" stroke="none"/><circle cx="43" cy="25" r="1.2" fill="#d9bc7a" stroke="none"/><circle cx="21" cy="39" r="1.2" fill="#d9bc7a" stroke="none"/><circle cx="43" cy="39" r="1.2" fill="#d9bc7a" stroke="none"/></g></svg>
+          <div><h4>The Founder</h4><div class="sym">Symbol — The Mold</div><p>Keeper of the Order&rsquo;s origin, traditions, and ritual; counsel to the Face.</p></div>
+        </div>
+        <div class="station">
+          <svg viewBox="0 0 64 64" role="img" aria-label="Medallion of the Anvil, symbol of the Keeper of the Anvil"><circle cx="32" cy="32" r="30" fill="#0b0b0c"/><circle cx="32" cy="32" r="29" fill="none" stroke="#c9a86a" stroke-width="1.4"/><circle cx="32" cy="32" r="24.5" fill="none" stroke="#c9a86a" stroke-width=".6" opacity=".65"/><g fill="none" stroke="#d9bc7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15,26 H38 L49,30.5 Q50.5,31.5 49,33 L38,34 H15 Z"/><path d="M25,34 H37 L35,40 H27 Z"/><path d="M21,44 L24,40 H38 L41,44 Z"/><path d="M14,47.5 H50" stroke-width="1.2"/></g></svg>
+          <div><h4>Keeper of the Anvil</h4><div class="sym">Symbol — The Anvil</div><p>Presides when the Face is absent; keeps order and steadiness.</p></div>
+        </div>
+        <div class="station">
+          <svg viewBox="0 0 64 64" role="img" aria-label="Medallion of the Crucible, symbol of The Smelter"><circle cx="32" cy="32" r="30" fill="#0b0b0c"/><circle cx="32" cy="32" r="29" fill="none" stroke="#c9a86a" stroke-width="1.4"/><circle cx="32" cy="32" r="24.5" fill="none" stroke="#c9a86a" stroke-width=".6" opacity=".65"/><g fill="none" stroke="#d9bc7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20,19 H44"/><path d="M22,19 L25.5,38 Q32,42.5 38.5,38 L42,19"/><path d="M24.5,25.5 Q28,24 32,25.5 T39.5,25.5"/><path d="M28,41.5 v3 M36,41.5 v3"/></g></svg>
+          <div><h4>The Smelter</h4><div class="sym">Symbol — The Crucible</div><p>Oversees funds, dues, and financial reports.</p></div>
+        </div>
+        <div class="station">
+          <svg viewBox="0 0 64 64" role="img" aria-label="Medallion of the Burin, symbol of The Engraver"><circle cx="32" cy="32" r="30" fill="#0b0b0c"/><circle cx="32" cy="32" r="29" fill="none" stroke="#c9a86a" stroke-width="1.4"/><circle cx="32" cy="32" r="24.5" fill="none" stroke="#c9a86a" stroke-width=".6" opacity=".65"/><g fill="none" stroke="#d9bc7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="22.5" cy="41.5" r="5.5"/><circle cx="22.5" cy="41.5" r="2"/><path d="M26.5,36.5 L39,24"/><path d="M39,24 L47,16 L43.5,26.5 Z"/></g></svg>
+          <div><h4>The Engraver</h4><div class="sym">Symbol — The Burin</div><p>Keeps minutes, membership rolls, and records.</p></div>
+        </div>
+        <div class="station">
+          <svg viewBox="0 0 64 64" role="img" aria-label="Medallion of the Square, symbol of The Patternmaker"><circle cx="32" cy="32" r="30" fill="#0b0b0c"/><circle cx="32" cy="32" r="29" fill="none" stroke="#c9a86a" stroke-width="1.4"/><circle cx="32" cy="32" r="24.5" fill="none" stroke="#c9a86a" stroke-width=".6" opacity=".65"/><g fill="none" stroke="#d9bc7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21,47 V17 H29 V39 H47 V47 Z"/><path d="M25,39 v-4 M29,43 h4" stroke-width="1.2"/></g></svg>
+          <div><h4>The Patternmaker</h4><div class="sym">Symbol — The Square</div><p>Leads education and guides Apprentices through the degrees.</p></div>
+        </div>
+        <div class="station">
+          <svg viewBox="0 0 64 64" role="img" aria-label="Medallion of the Flame, symbol of the Keeper of the Flame"><circle cx="32" cy="32" r="30" fill="#0b0b0c"/><circle cx="32" cy="32" r="29" fill="none" stroke="#c9a86a" stroke-width="1.4"/><circle cx="32" cy="32" r="24.5" fill="none" stroke="#c9a86a" stroke-width=".6" opacity=".65"/><g fill="none" stroke="#d9bc7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M32,13 C35.5,20 41,24.5 41,33 a9,9 0 1,1 -18,0 C23,24.5 28.5,20 32,13 Z"/><path d="M32,29 C33.8,32.5 35.5,34.5 35.5,37.5 a3.5,3.5 0 1,1 -7,0 C28.5,34.5 30.2,32.5 32,29 Z"/></g></svg>
+          <div><h4>Keeper of the Flame</h4><div class="sym">Symbol — The Flame</div><p>Leads service programs and charitable work.</p></div>
+        </div>
+        <div class="station">
+          <svg viewBox="0 0 64 64" role="img" aria-label="Medallion of the Tongs, symbol of The Ironwarden"><circle cx="32" cy="32" r="30" fill="#0b0b0c"/><circle cx="32" cy="32" r="29" fill="none" stroke="#c9a86a" stroke-width="1.4"/><circle cx="32" cy="32" r="24.5" fill="none" stroke="#c9a86a" stroke-width=".6" opacity=".65"/><g fill="none" stroke="#d9bc7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M26,15 C24,19 24.5,23 28,27 L36.5,42.5"/><path d="M38,15 C40,19 39.5,23 36,27 L27.5,42.5"/><circle cx="32" cy="29" r="1.7" fill="#d9bc7a" stroke="none"/><circle cx="37.5" cy="45.5" r="2.6"/><circle cx="26.5" cy="45.5" r="2.6"/></g></svg>
+          <div><h4>The Ironwarden</h4><div class="sym">Symbol — The Tongs</div><p>Guards meetings and confirms members in good standing.</p></div>
+        </div>
+      </div>
+
+      <div class="order-close">
+        <div class="order-sub">Forges</div>
+        <p class="forge-line"><strong>Forges</strong> are the Order&rsquo;s local chapters, chartered by the Board and carrying the Order&rsquo;s work into their own communities.</p>
+        <p class="equality">&ldquo;All members meet as equals within the Order regardless of wealth, title, or status outside it.&rdquo;</p>
       </div>
     </div>
   </section>
