@@ -1,0 +1,939 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="color-scheme" content="light dark"/>
+<link rel="icon" href="data:,"/>
+<title>Founders Site — The Foundry | Private Application Portal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f5f0; --bg2:#ffffff; --surface:#ffffff; --surface2:#f0ece3;
+  --ink:#121315; --ink2:#3a3d42; --muted:#6b6e73; --line:#e3ddd0; --line2:#d8d0be;
+  --gold:#b9975b; --gold2:#96793f; --gold-light:#e9dcc0;
+  --charcoal:#0f0f11; --charcoal2:#17181a;
+  --success:#1a6b4a; --radius:4px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0c0c0e; --bg2:#121214; --surface:#161618; --surface2:#1e1e20;
+    --ink:#f2efe8; --ink2:#d6d1c4; --muted:#a09a8d; --line:#26261f; --line2:#333228;
+    --gold:#c9a86a; --gold2:#e0c78f; --gold-light:#2a251a;
+    --charcoal:#080809; --charcoal2:#111112;
+    --success:#3ecf8e;
+    color-scheme:dark;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Manrope",system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.serif{font-family:"Cormorant Garamond",Georgia,serif}
+.mono{font-family:"IBM Plex Mono",monospace}
+
+/* Header */
+header{position:sticky;top:0;z-index:50;background:color-mix(in srgb, var(--bg) 92%, transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.header-inner{max-width:1240px;margin:0 auto;padding:0 28px;height:68px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none}
+.mark{width:38px;height:38px;background:var(--charcoal);color:#c9a86a;display:grid;place-items:center;font-family:"Cormorant Garamond",serif;font-weight:700;font-size:22px;border:1px solid var(--gold);flex-shrink:0}
+@media(prefers-color-scheme:dark){.mark{background:#1c1c1e}}
+.brand-text{line-height:1}
+.brand-text strong{display:block;font-family:"Cormorant Garamond",serif;font-size:21px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+.brand-text span{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:700}
+nav{display:flex;gap:28px;align-items:center}
+nav a{text-decoration:none;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--ink2)}
+nav a:hover{color:var(--gold2)}
+.nav-cta{background:var(--charcoal);color:#fff!important;padding:10px 18px;border:1px solid var(--charcoal)}
+@media(prefers-color-scheme:dark){.nav-cta{background:var(--gold);color:#111!important;border-color:var(--gold)}}
+@media(max-width:760px){nav a:not(.nav-cta){display:none}.header-inner{padding:8px 14px;height:auto;min-height:60px}.brand-text strong{font-size:16px}.brand-text span{font-size:8.5px}.mark{width:32px;height:32px;font-size:18px}.nav-cta{white-space:nowrap;padding:9px 12px;font-size:11px}}
+
+/* Hero */
+.hero{background:var(--charcoal);color:#ece8dd;overflow:hidden;position:relative}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 75% 10%, rgba(185,151,91,.22), transparent 60%);pointer-events:none}
+.hero-inner{max-width:1240px;margin:0 auto;padding:72px 28px 64px;position:relative;display:grid;grid-template-columns:1.25fr .75fr;gap:56px}
+@media(max-width:860px){.hero-inner{grid-template-columns:1fr;padding:52px 20px 44px;gap:36px}}
+.eyebrow{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:800;display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:36px;height:1px;background:var(--gold)}
+.hero h1{font-family:"Cormorant Garamond",serif;font-size:clamp(44px,6vw,76px);line-height:.95;font-weight:600;margin:18px 0 20px;letter-spacing:-.01em}
+.hero h1 em{font-style:italic;color:var(--gold);font-weight:500}
+.hero p.lead{font-size:17px;line-height:1.7;color:#c9c4b4;max-width:560px;margin:0}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;text-decoration:none;cursor:pointer;border:1px solid transparent;transition:.18s}
+.btn-gold{background:var(--gold);color:#121212;border-color:var(--gold)}
+.btn-gold:hover{background:#d1b47a}
+.btn-outline{background:transparent;color:#ece8dd;border-color:#3a3a3c}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+.btn-dark{background:var(--charcoal);color:#fff;border-color:var(--charcoal)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line2)}
+.hero-panel{border:1px solid #2c2c2e;background:rgba(255,255,255,.03);padding:28px}
+.hero-panel h3{margin:0 0 6px;font-family:"Cormorant Garamond",serif;font-size:24px;font-weight:600}
+.hero-panel p{margin:0;color:#a8a294;font-size:13.5px;line-height:1.6}
+.stat-row{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#2c2c2e;border:1px solid #2c2c2e;margin-top:22px}
+.stat{background:#131315;padding:16px}
+.stat b{display:block;font-family:"Cormorant Garamond",serif;font-size:30px;line-height:1;color:#fff}
+.stat span{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#8f8a7d;font-weight:700}
+
+/* Layout */
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+@media(max-width:640px){.wrap{padding:0 18px}}
+section{padding:72px 0}
+@media(max-width:640px){section{padding:52px 0}}
+.sec-head{max-width:720px;margin-bottom:36px}
+.sec-head h2{font-family:"Cormorant Garamond",serif;font-size:clamp(32px,4vw,48px);line-height:1.05;margin:12px 0 12px;font-weight:600}
+.sec-head p{color:var(--muted);font-size:16px;margin:0;line-height:1.7}
+.kicker{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold2);font-weight:800}
+
+/* Structure */
+.structure{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.org-chart{display:grid;grid-template-columns:1fr;gap:0;max-width:880px;margin:0 auto}
+.org-top{background:var(--charcoal);color:#fff;text-align:center;padding:28px 24px;border:1px solid var(--charcoal)}
+.org-top .ot-label{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);font-weight:800}
+.org-top h3{font-family:"Cormorant Garamond",serif;font-size:32px;margin:6px 0 4px;font-weight:600}
+.org-top p{margin:0;color:#b8b2a2;font-size:13.5px}
+.connector{width:1px;height:28px;background:var(--line2);margin:0 auto}
+.org-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:760px){.org-grid{grid-template-columns:1fr}}
+.org-box{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--gold);padding:22px}
+.org-box h4{margin:0 0 6px;font-family:"Cormorant Garamond",serif;font-size:22px;font-weight:600;line-height:1.1}
+.org-box .tag{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold2);font-weight:800}
+.org-box p{margin:8px 0 0;font-size:13.5px;color:var(--muted);line-height:1.6}
+.org-bottom{margin-top:16px;border:1px dashed var(--line2);padding:18px 22px;display:flex;flex-wrap:wrap;gap:10px 28px;align-items:center;justify-content:space-between;background:var(--surface2)}
+.org-bottom strong{font-family:"Cormorant Garamond",serif;font-size:20px}
+.org-bottom span{font-size:13px;color:var(--muted)}
+
+/* Branches */
+.branch-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+@media(max-width:820px){.branch-grid{grid-template-columns:1fr}}
+.branch-card{background:var(--surface);border:1px solid var(--line);padding:30px;display:flex;flex-direction:column;transition:border-color .2s, transform .2s}
+.branch-card:hover{border-color:var(--gold)}
+.branch-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.branch-num{font-family:"Cormorant Garamond",serif;font-size:44px;line-height:1;color:var(--line2);font-weight:600}
+.branch-icon{width:48px;height:48px;border:1px solid var(--line2);display:grid;place-items:center;color:var(--gold2);flex-shrink:0}
+.branch-card h3{font-family:"Cormorant Garamond",serif;font-size:28px;margin:16px 0 4px;font-weight:600;line-height:1.1}
+.branch-card .branch-sub{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold2);font-weight:800}
+.branch-card>p{color:var(--muted);font-size:14.5px;line-height:1.7;margin:12px 0 0}
+.doc-list{margin:18px 0 0;padding:0;list-style:none;border-top:1px solid var(--line)}
+.doc-list li{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:13.5px;color:var(--ink2)}
+.doc-list li::before{content:"—";color:var(--gold);font-weight:700}
+.branch-foot{margin-top:auto;padding-top:22px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.token-chip{font-family:"IBM Plex Mono",monospace;font-size:11px;background:var(--surface2);border:1px solid var(--line);padding:6px 10px;color:var(--muted);letter-spacing:.04em}
+.unlock-btn{background:var(--ink);color:var(--bg);border:1px solid var(--ink);padding:12px 20px;font-size:12px;letter-spacing:.13em;text-transform:uppercase;font-weight:800;cursor:pointer}
+.unlock-btn:hover{background:var(--gold);border-color:var(--gold);color:#111}
+.status-pill{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:6px 10px;border:1px solid var(--line2);color:var(--muted)}
+.status-pill.open{color:var(--success);border-color:var(--success)}
+
+/* Workspace */
+.workspace{background:var(--charcoal);color:#ece8dd}
+.workspace .sec-head h2{color:#fff}
+.workspace .sec-head p{color:#a8a294}
+.workspace .kicker{color:var(--gold)}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:0}
+.tab{padding:13px 20px;background:transparent;color:#a8a294;border:1px solid #2e2e30;border-bottom:none;font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;cursor:pointer}
+.tab.active{background:#17181a;color:#fff;border-color:#2e2e30;box-shadow:inset 0 2px 0 var(--gold)}
+.panel{background:#17181a;border:1px solid #2e2e30;padding:34px}
+@media(max-width:640px){.panel{padding:22px 18px}}
+.gate{max-width:520px;margin:0 auto;text-align:center;padding:18px 0 8px}
+.gate-icon{width:60px;height:60px;margin:0 auto 18px;border:1px solid #333;border-radius:50%;display:grid;place-items:center;color:var(--gold);font-size:24px}
+.gate h3{font-family:"Cormorant Garamond",serif;font-size:30px;margin:0 0 8px;font-weight:600;color:#fff}
+.gate p{color:#a8a294;font-size:14.5px;margin:0 auto;max-width:440px}
+.gate-form{display:flex;gap:10px;margin-top:24px}
+@media(max-width:520px){.gate-form{flex-direction:column}}
+.gate-form input{flex:1;background:#0f0f11;border:1px solid #333;color:#fff;padding:15px 16px;font-family:"IBM Plex Mono",monospace;font-size:14px;letter-spacing:.06em;text-transform:uppercase;outline:none}
+.gate-form input:focus{border-color:var(--gold)}
+.gate-error{display:none;margin-top:14px;color:#ff8a7a;font-size:13.5px;font-weight:600}
+.gate-hint{margin-top:18px;font-size:12.5px;color:#777264}
+.gate-hint a{color:var(--gold);text-decoration:underline}
+
+/* Forms */
+.app-form{display:none}
+.app-form.visible{display:block}
+.form-head{border-bottom:1px solid #2e2e30;padding-bottom:20px;margin-bottom:26px;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:flex-start}
+.form-head h3{font-family:"Cormorant Garamond",serif;font-size:32px;margin:0;font-weight:600;color:#fff;line-height:1.1}
+.form-head p{margin:6px 0 0;color:#a8a294;font-size:14px;max-width:560px}
+.form-section-title{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:800;margin:30px 0 14px;display:flex;align-items:center;gap:12px}
+.form-section-title::after{content:"";flex:1;height:1px;background:#2e2e30}
+.form-section-title:first-of-type{margin-top:0}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:700px){.fgrid{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:7px}
+.field.full{grid-column:1/-1}
+.field label{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:#c9c4b4}
+.field label i{color:var(--gold);font-style:normal}
+.field input,.field select,.field textarea{background:#0f0f11;border:1px solid #333;color:#f2efe8;padding:13px 14px;font-size:15px;font-family:"Manrope",sans-serif;outline:none;width:100%;border-radius:2px}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold)}
+.field textarea{min-height:110px;resize:vertical}
+.field select{appearance:none}
+.field .help{font-size:12px;color:#777264;line-height:1.5}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:700px){.checks{grid-template-columns:1fr}}
+.check-item{display:flex;gap:11px;align-items:flex-start;background:#0f0f11;border:1px solid #2c2c2e;padding:13px 14px;cursor:pointer;font-size:14px;color:#ddd8ca}
+.check-item input{margin-top:3px;accent-color:#b9975b;width:16px;height:16px;flex-shrink:0}
+.form-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px;padding-top:24px;border-top:1px solid #2e2e30;align-items:center}
+.submit-note{font-size:12.5px;color:#777264;max-width:380px;line-height:1.6}
+.success-box{display:none;background:#10251c;border:1px solid #1f5c40;color:#c9f2dd;padding:22px;margin-top:24px}
+.success-box.show{display:block}
+.success-box h4{margin:0 0 6px;font-family:"Cormorant Garamond",serif;font-size:24px;color:#fff}
+.success-box p{margin:0;font-size:14px;line-height:1.6}
+.success-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.btn-small{padding:11px 18px;font-size:11.5px}
+
+/* Process */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:820px){.steps{grid-template-columns:1fr}}
+.step{border:1px solid var(--line);background:var(--surface);padding:26px}
+.step b{font-family:"Cormorant Garamond",serif;font-size:40px;color:var(--gold);line-height:1;display:block}
+.step h3{margin:12px 0 6px;font-size:17px}
+.step p{margin:0;color:var(--muted);font-size:14px;line-height:1.7}
+
+/* Founder reference */
+.founder-ref{background:var(--surface2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.ref-table{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--line);overflow:hidden}
+.ref-table th,.ref-table td{text-align:left;padding:16px 18px;border-bottom:1px solid var(--line);font-size:14px;vertical-align:top}
+.ref-table th{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);background:var(--surface2)}
+.ref-table tr:last-child td{border-bottom:none}
+.ref-table td code{font-family:"IBM Plex Mono",monospace;background:var(--surface2);border:1px solid var(--line);padding:4px 8px;font-size:13px;white-space:nowrap}
+@media(max-width:700px){.ref-table thead{display:none}.ref-table tr{display:block;border-bottom:1px solid var(--line)}.ref-table td{display:block;border:none;padding:10px 16px}.ref-table td:first-child{padding-top:16px;font-weight:700}.ref-table td:last-child{padding-bottom:16px}}
+.copy-btn{background:none;border:1px solid var(--line2);padding:7px 12px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:800;cursor:pointer;color:var(--ink)}
+.copy-btn:hover{border-color:var(--gold);color:var(--gold2)}
+
+/* Docs standards */
+.doc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+@media(max-width:820px){.doc-grid{grid-template-columns:1fr}}
+.doc-card{border:1px solid var(--line);padding:26px;background:var(--surface)}
+.doc-card h3{margin:0 0 10px;font-family:"Cormorant Garamond",serif;font-size:23px;font-weight:600}
+.doc-card ul{margin:0;padding-left:18px;color:var(--muted);font-size:14px;line-height:1.9}
+
+footer{background:var(--charcoal);color:#8f8a7d;padding:44px 0}
+.footer-inner{max-width:1240px;margin:0 auto;padding:0 28px;display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:flex-start}
+footer strong{color:#fff;font-family:"Cormorant Garamond",serif;letter-spacing:.12em;text-transform:uppercase;font-size:18px}
+footer p{font-size:13px;line-height:1.7;max-width:520px;margin:8px 0 0}
+footer a{color:var(--gold)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:var(--charcoal);color:#fff;border:1px solid var(--gold);padding:13px 20px;font-size:13.5px;font-weight:600;opacity:0;pointer-events:none;transition:.25s;z-index:100;max-width:90vw;text-align:center}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="brand" href="#top">
+      <span class="mark">F</span>
+      <span class="brand-text"><strong>The Foundry</strong><span>Founders Portal · Est. Trust Structure</span></span>
+    </a>
+    <nav>
+      <a href="#structure">Structure</a>
+      <a href="#branches">Branches</a>
+      <a href="#standards">Documentation</a>
+      <a href="#founder-reference">Distribution</a>
+      <a class="nav-cta" href="#apply">Apply with Token</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="eyebrow">Private Application Portal — By Invitation &amp; Token Only</div>
+        <h1>The house that<br><em>holds the work.</em></h1>
+        <p class="lead">The Foundry is the parent fraternal organization at the center of the trust structure. This portal is where members of each branch submit their information, documentation, and applications — each section secured by its own access token, each submission delivered directly to the founders.</p>
+        <div class="hero-actions">
+          <a class="btn btn-gold" href="#branches">Enter Your Branch</a>
+          <a class="btn btn-outline" href="#structure">View the Structure</a>
+        </div>
+        <p style="margin-top:20px;font-size:13px;color:#8f8a7d">No account is created on this page. Your application opens in your own email, addressed to the founders, so you retain a copy of everything you send.</p>
+      </div>
+      <aside class="hero-panel" aria-label="Structure at a glance">
+        <h3>At a Glance</h3>
+        <p>One parent organization. Two trusts. Four gated branches. Resources, intellectual property, and media partnerships — administered under a single standard of documentation.</p>
+        <div class="stat-row">
+          <div class="stat"><b>2</b><span>Trusts</span></div>
+          <div class="stat"><b>4</b><span>Gated Branches</span></div>
+          <div class="stat"><b>100+</b><span>Equity Sub-Models</span></div>
+          <div class="stat"><b>1</b><span>Parent Fraternal Org</span></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- STRUCTURE -->
+  <section class="structure" id="structure">
+    <div class="wrap">
+      <div class="sec-head" style="margin-left:auto;margin-right:auto;text-align:center">
+        <div class="kicker">Organizational Structure</div>
+        <h2>How the house is built</h2>
+        <p>The Foundry houses the trusts, governs the standard, and operates the incubator. Stone Heart Media carries partnerships outward. The IP Holding Trust holds and licenses what the network creates.</p>
+      </div>
+      <div class="org-chart">
+        <div class="org-top">
+          <div class="ot-label">Parent Fraternal Organization</div>
+          <h3>THE FOUNDRY</h3>
+          <p>Governance · Membership · Incubator · Standards &amp; Documentation</p>
+        </div>
+        <div class="connector"></div>
+        <div class="org-grid">
+          <div class="org-box">
+            <div class="tag">Trust No. 1 — Partnerships</div>
+            <h4>Stone Heart Media</h4>
+            <p>Formed as a trust. The joint-venture arm — Stone Heart partners with outside brands, co-builds media and product ventures, and shares in the upside under written JV terms.</p>
+          </div>
+          <div class="org-box">
+            <div class="tag">Trust No. 2 — Protection</div>
+            <h4>IP Holding Trust</h4>
+            <p>The second trust, housed within The Foundry. Holds all intellectual property — marks, works, formats, and inventions — and licenses it to ventures so the assets stay protected while the businesses operate.</p>
+          </div>
+          <div class="org-box">
+            <div class="tag">Operating Arm</div>
+            <h4>The Incubator</h4>
+            <p>Selects ventures two ways: open application and hand-picked invitation. The Foundry pours in resources — capital access, media, services, and network — in exchange for equity.</p>
+          </div>
+        </div>
+        <div class="org-bottom">
+          <div><strong>The Equity Engine</strong> &nbsp;<span>100s of sub-models calibrated to what each venture receives</span></div>
+          <span>Service-for-equity · Revenue share · License + equity · Network tiers</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANCHES -->
+  <section id="branches">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">The Four Branches</div>
+        <h2>Apply to your branch</h2>
+        <p>Each branch keeps its own records and its own token. Select your branch, enter the token you were issued, and complete the full documentation form. Submissions arrive by email to the founders for review.</p>
+      </div>
+
+      <div class="branch-grid">
+        <!-- 01 Foundry -->
+        <article class="branch-card" id="card-foundry">
+          <div class="branch-top"><span class="branch-num">01</span><span class="branch-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M5 21V10l7-6 7 6v11M9 21v-6h6v6"/></svg></span></div>
+          <h3>The Foundry — Core Registry</h3>
+          <div class="branch-sub">Parent Organization · Membership &amp; Governance</div>
+          <p>For founders, trustees, beneficiaries, and members of the parent fraternal organization. This is the master registry — the record from which all other branch access is recognized.</p>
+          <ul class="doc-list">
+            <li>Full legal identity &amp; contact record</li>
+            <li>Role claimed: Founder, Trustee, Beneficiary, or Member</li>
+            <li>Government ID type &amp; issuing authority</li>
+            <li>Two fraternal references</li>
+            <li>Statement of intent &amp; governance interest</li>
+          </ul>
+          <div class="branch-foot">
+            <span class="status-pill" data-status="foundry">Locked — Token Required</span>
+            <button class="unlock-btn" data-goto="foundry">Enter Branch →</button>
+          </div>
+        </article>
+
+        <!-- 02 Stone Heart -->
+        <article class="branch-card" id="card-stoneheart">
+          <div class="branch-top"><span class="branch-num">02</span><span class="branch-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21C7 16.5 3 13.2 3 9.3 3 6.4 5.2 4 8 4c1.6 0 3.1.8 4 2 .9-1.2 2.4-2 4-2 2.8 0 5 2.4 5 5.3 0 3.9-4 7.2-9 11.7Z"/></svg></span></div>
+          <h3>Stone Heart Media</h3>
+          <div class="branch-sub">Trust No. 1 · Joint Ventures &amp; Brand Partnerships</div>
+          <p>For brands and companies proposing a joint venture with Stone Heart Media. Document your brand, your audience, what you bring, and the partnership structure you propose.</p>
+          <ul class="doc-list">
+            <li>Brand / company legal name &amp; entity record</li>
+            <li>Decision-maker &amp; authorized contact</li>
+            <li>Audience, revenue range &amp; distribution</li>
+            <li>JV proposal &amp; proposed structure</li>
+            <li>Trademark &amp; media-kit documentation status</li>
+          </ul>
+          <div class="branch-foot">
+            <span class="status-pill" data-status="stoneheart">Locked — Token Required</span>
+            <button class="unlock-btn" data-goto="stoneheart">Enter Branch →</button>
+          </div>
+        </article>
+
+        <!-- 03 IP Trust -->
+        <article class="branch-card" id="card-iptrust">
+          <div class="branch-top"><span class="branch-num">03</span><span class="branch-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6l7-3Z"/><path d="M9 12l2 2 4-4"/></svg></span></div>
+          <h3>IP Holding Trust</h3>
+          <div class="branch-sub">Trust No. 2 · Intellectual Property &amp; Licensing</div>
+          <p>For creators and owners placing intellectual property into the trust, or seeking a license from it. Every asset is documented — type, registration, ownership share, and licensing intent.</p>
+          <ul class="doc-list">
+            <li>IP title, type &amp; full description</li>
+            <li>Registration number &amp; jurisdiction (if any)</li>
+            <li>Ownership percentage &amp; co-owners</li>
+            <li>Licensing intent: deposit, license-in, or license-out</li>
+            <li>Proof-of-ownership documentation status</li>
+          </ul>
+          <div class="branch-foot">
+            <span class="status-pill" data-status="iptrust">Locked — Token Required</span>
+            <button class="unlock-btn" data-goto="iptrust">Enter Branch →</button>
+          </div>
+        </article>
+
+        <!-- 04 Incubator -->
+        <article class="branch-card" id="card-incubator">
+          <div class="branch-top"><span class="branch-num">04</span><span class="branch-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21v-8M12 13c0-3 2.5-5 6-5 0 3.5-2.5 5.5-6 5ZM12 13c0-3-2.5-5-6-5 0 3.5 2.5 5.5 6 5Z"/></svg></span></div>
+          <h3>The Incubator</h3>
+          <div class="branch-sub">Venture Intake · Resources for Equity</div>
+          <p>For businesses applying — or invited — into the incubator. Document your venture, what you need from the network, and the equity you are prepared to offer in exchange for resources.</p>
+          <ul class="doc-list">
+            <li>Business legal name, stage &amp; industry</li>
+            <li>Founder record &amp; team size</li>
+            <li>Revenue, traction &amp; pitch-deck reference</li>
+            <li>Resources requested from the network</li>
+            <li>Equity offered &amp; sub-model preference</li>
+          </ul>
+          <div class="branch-foot">
+            <span class="status-pill" data-status="incubator">Locked — Token Required</span>
+            <button class="unlock-btn" data-goto="incubator">Enter Branch →</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPLICATION WORKSPACE -->
+  <section class="workspace" id="apply" style="padding-top:64px">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Application Workspace</div>
+        <h2>Submit your information</h2>
+        <p>Choose your branch, enter its token, and the full documentation form will open. On submission, your completed application opens in your email addressed to <strong style="color:#fff">services@djbey.com</strong> — press send there to deliver it.</p>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Branches">
+        <button class="tab active" data-branch="foundry" role="tab">01 · The Foundry</button>
+        <button class="tab" data-branch="stoneheart" role="tab">02 · Stone Heart Media</button>
+        <button class="tab" data-branch="iptrust" role="tab">03 · IP Holding Trust</button>
+        <button class="tab" data-branch="incubator" role="tab">04 · The Incubator</button>
+      </div>
+
+      <div class="panel">
+        <!-- GATE -->
+        <div id="gate">
+          <div class="gate">
+            <div class="gate-icon" aria-hidden="true">⚿</div>
+            <h3 id="gateTitle">The Foundry — Core Registry</h3>
+            <p id="gateText">This section is token-gated. Enter the access token issued to you for this branch by a founder. Tokens are branch-specific — a token for one branch will not open another.</p>
+            <form class="gate-form" id="gateForm">
+              <input id="tokenInput" type="text" placeholder="ENTER ACCESS TOKEN" autocomplete="off" spellcheck="false" aria-label="Access token"/>
+              <button class="btn btn-gold" type="submit" style="justify-content:center">Unlock Branch</button>
+            </form>
+            <div class="gate-error" id="gateError">That token does not match this branch. Check the spelling and try again, or confirm with the founder who issued it.</div>
+            <p class="gate-hint">If you do not have a token, contact the founder who invited you — tokens are issued privately and are never published on this portal.</p>
+          </div>
+        </div>
+
+        <!-- FORM: FOUNDRY -->
+        <form class="app-form" id="form-foundry" data-branchname="The Foundry — Core Registry" novalidate>
+          <div class="form-head">
+            <div><h3>The Foundry — Core Registry</h3><p>Master membership record for the parent fraternal organization. Complete every field; incomplete registries are returned for completion.</p></div>
+            <span class="status-pill open">Branch Unlocked ✓</span>
+          </div>
+
+          <div class="form-section-title">A · Personal Record</div>
+          <div class="fgrid">
+            <div class="field"><label>Full Legal Name <i>*</i></label><input name="Full Legal Name" required placeholder="As it appears on government ID"/></div>
+            <div class="field"><label>Preferred / Called Name</label><input name="Preferred Name" placeholder="Name used within the organization"/></div>
+            <div class="field"><label>Date of Birth <i>*</i></label><input name="Date of Birth" type="date" required/></div>
+            <div class="field"><label>Place of Birth</label><input name="Place of Birth" placeholder="City, State / Country"/></div>
+            <div class="field"><label>Email Address <i>*</i></label><input name="Email" type="email" required placeholder="you@example.com"/></div>
+            <div class="field"><label>Mobile Phone <i>*</i></label><input name="Phone" type="tel" required placeholder="+1 (___) ___-____"/></div>
+            <div class="field full"><label>Mailing Address <i>*</i></label><input name="Mailing Address" required placeholder="Street address"/></div>
+            <div class="field"><label>City <i>*</i></label><input name="City" required/></div>
+            <div class="field"><label>State / Province <i>*</i></label><input name="State" required/></div>
+            <div class="field"><label>ZIP / Postal Code <i>*</i></label><input name="ZIP" required/></div>
+            <div class="field"><label>Country</label><input name="Country" value="United States"/></div>
+          </div>
+
+          <div class="form-section-title">B · Role &amp; Standing</div>
+          <div class="fgrid">
+            <div class="field"><label>Role Claimed <i>*</i></label>
+              <select name="Role Claimed" required><option value="">Select role…</option><option>Founder</option><option>Trustee</option><option>Beneficiary</option><option>Member</option><option>Officer / Administrator</option><option>Candidate for Membership</option></select></div>
+            <div class="field"><label>Branch Affiliation (if any)</label>
+              <select name="Branch Affiliation"><option value="">Select…</option><option>The Foundry — Core</option><option>Stone Heart Media</option><option>IP Holding Trust</option><option>The Incubator</option><option>Multiple</option><option>None yet</option></select></div>
+            <div class="field"><label>Referred / Sponsored By</label><input name="Referred By" placeholder="Name of sponsoring founder or member"/></div>
+            <div class="field"><label>Date of First Affiliation</label><input name="Date of First Affiliation" type="date"/></div>
+            <div class="field"><label>Governance Interest</label>
+              <select name="Governance Interest"><option value="">Select…</option><option>Trustee seat</option><option>Committee service</option><option>Mentorship</option><option>Incubator review board</option><option>None at this time</option></select></div>
+            <div class="field"><label>Fraternal Reference 1 — Name &amp; Phone <i>*</i></label><input name="Reference 1" required placeholder="Name — phone"/></div>
+            <div class="field"><label>Fraternal Reference 2 — Name &amp; Phone</label><input name="Reference 2" placeholder="Name — phone"/></div>
+            <div class="field"><label>Emergency Contact — Name, Relation, Phone <i>*</i></label><input name="Emergency Contact" required/></div>
+          </div>
+
+          <div class="form-section-title">C · Identity Documentation</div>
+          <div class="fgrid">
+            <div class="field"><label>Government ID Type <i>*</i></label>
+              <select name="ID Type" required><option value="">Select…</option><option>Driver's License</option><option>State ID</option><option>U.S. Passport</option><option>Tribal ID</option><option>Other Government ID</option></select></div>
+            <div class="field"><label>Issuing State / Authority <i>*</i></label><input name="ID Issuing Authority" required/></div>
+            <div class="field"><label>ID Number (last 4 only) <i>*</i></label><input name="ID Last 4" maxlength="4" required placeholder="••••"/><span class="help">For your protection, provide only the last four characters here. Full document copies are exchanged privately with the founders after intake.</span></div>
+            <div class="field"><label>ID Expiration Date</label><input name="ID Expiration" type="date"/></div>
+            <div class="field"><label>Proof of Address Available?</label>
+              <select name="Proof of Address"><option>Yes — utility bill / bank statement</option><option>Yes — lease / deed</option><option>Will provide on request</option><option>Not available</option></select></div>
+            <div class="field"><label>Background Attestation</label>
+              <select name="Background Attestation"><option>I attest my record is as stated in my statement below</option><option>I have matters I disclose in my statement below</option></select></div>
+            <div class="field full"><label>Statement of Intent <i>*</i></label><textarea name="Statement of Intent" required placeholder="Why you seek standing in The Foundry, what you bring to the fraternity, and what you intend to build within it…"></textarea></div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-gold">Prepare Application Email →</button>
+            <button type="button" class="btn btn-outline" data-copy="foundry">Copy Application Text</button>
+            <button type="button" class="btn btn-outline" data-download="foundry">Download .txt</button>
+            <span class="submit-note">Submitting opens your email client with the completed application addressed to the founders. Nothing is stored on this page.</span>
+          </div>
+          <div class="success-box" id="success-foundry"><h4>Application prepared.</h4><p>Your email should now be open with the completed registry. Press <strong>Send</strong> in your email to deliver it to the founders. If no email opened, use Copy or Download above and send the text to services@djbey.com.</p></div>
+        </form>
+
+        <!-- FORM: STONE HEART -->
+        <form class="app-form" id="form-stoneheart" data-branchname="Stone Heart Media — Joint Venture Application" novalidate>
+          <div class="form-head">
+            <div><h3>Stone Heart Media — Joint Venture</h3><p>Partnership proposal for Trust No. 1. Document the brand fully — JV review begins from this record alone.</p></div>
+            <span class="status-pill open">Branch Unlocked ✓</span>
+          </div>
+
+          <div class="form-section-title">A · Brand &amp; Entity Record</div>
+          <div class="fgrid">
+            <div class="field"><label>Brand / Company Legal Name <i>*</i></label><input name="Company Legal Name" required/></div>
+            <div class="field"><label>DBA / Trade Name</label><input name="DBA"/></div>
+            <div class="field"><label>Entity Type <i>*</i></label>
+              <select name="Entity Type" required><option value="">Select…</option><option>LLC</option><option>Corporation (C-Corp)</option><option>Corporation (S-Corp)</option><option>Trust</option><option>Sole Proprietorship</option><option>Partnership</option><option>Not yet formed</option></select></div>
+            <div class="field"><label>State of Formation</label><input name="State of Formation"/></div>
+            <div class="field"><label>EIN (if formed)</label><input name="EIN" placeholder="XX-XXXXXXX"/></div>
+            <div class="field"><label>Year Founded</label><input name="Year Founded" placeholder="YYYY"/></div>
+            <div class="field"><label>Website</label><input name="Website" placeholder="https://"/></div>
+            <div class="field"><label>Primary Social Handle</label><input name="Social Handle" placeholder="@brand"/></div>
+            <div class="field full"><label>Business Address</label><input name="Business Address" placeholder="Street, City, State, ZIP"/></div>
+          </div>
+
+          <div class="form-section-title">B · Authorized Contact</div>
+          <div class="fgrid">
+            <div class="field"><label>Decision-Maker Full Name <i>*</i></label><input name="Contact Name" required/></div>
+            <div class="field"><label>Title / Authority <i>*</i></label><input name="Contact Title" required placeholder="Owner, CEO, Authorized Agent…"/></div>
+            <div class="field"><label>Email <i>*</i></label><input name="Email" type="email" required/></div>
+            <div class="field"><label>Phone <i>*</i></label><input name="Phone" type="tel" required/></div>
+          </div>
+
+          <div class="form-section-title">C · Brand Position &amp; Proposal</div>
+          <div class="fgrid">
+            <div class="field"><label>Brand Category <i>*</i></label>
+              <select name="Brand Category" required><option value="">Select…</option><option>Media / Entertainment</option><option>Apparel / Fashion</option><option>Music</option><option>Gaming</option><option>Food &amp; Beverage</option><option>Technology</option><option>Education</option><option>Other</option></select></div>
+            <div class="field"><label>Total Audience / Reach</label>
+              <select name="Audience Size"><option>Under 10K</option><option>10K – 100K</option><option>100K – 500K</option><option>500K – 1M</option><option>1M+</option><option>Pre-launch</option></select></div>
+            <div class="field"><label>Annual Revenue Range</label>
+              <select name="Revenue Range"><option>Pre-revenue</option><option>Under $50K</option><option>$50K – $250K</option><option>$250K – $1M</option><option>$1M+</option><option>Prefer to discuss privately</option></select></div>
+            <div class="field"><label>Distribution Channels</label><input name="Distribution" placeholder="Retail, DTC, streaming, live events…"/></div>
+            <div class="field full"><label>What Your Brand Brings to the Venture <i>*</i></label><textarea name="What Brand Brings" required placeholder="Audience, IP, product, talent, distribution, capital…"></textarea></div>
+            <div class="field full"><label>Joint Venture Proposal <i>*</i></label><textarea name="JV Proposal" required placeholder="The venture you propose to build with Stone Heart Media — product, format, timeline, and roles…"></textarea></div>
+            <div class="field"><label>Proposed Structure</label>
+              <select name="Proposed Structure"><option>Revenue share</option><option>Equity partnership</option><option>Co-production</option><option>Licensing + revenue share</option><option>Open to Stone Heart's terms</option></select></div>
+            <div class="field"><label>What You Seek from Stone Heart <i>*</i></label><input name="What You Seek" required placeholder="Media production, audience, capital, network…"/></div>
+          </div>
+
+          <div class="form-section-title">D · Documentation Status</div>
+          <div class="fgrid">
+            <div class="field"><label>Trademark Status</label>
+              <select name="Trademark Status"><option>Registered</option><option>Application pending</option><option>Unregistered — common law</option><option>None</option></select></div>
+            <div class="field"><label>Media Kit Available?</label>
+              <select name="Media Kit"><option>Yes — will attach / link on request</option><option>In preparation</option><option>No</option></select></div>
+            <div class="field full"><label>Links — Deck, Media Kit, Press</label><textarea name="Links" style="min-height:70px" placeholder="One link per line"></textarea></div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-gold">Prepare Application Email →</button>
+            <button type="button" class="btn btn-outline" data-copy="stoneheart">Copy Application Text</button>
+            <button type="button" class="btn btn-outline" data-download="stoneheart">Download .txt</button>
+            <span class="submit-note">Submitting opens your email client with the completed proposal addressed to the founders. Nothing is stored on this page.</span>
+          </div>
+          <div class="success-box" id="success-stoneheart"><h4>Proposal prepared.</h4><p>Your email should now be open with the completed JV proposal. Press <strong>Send</strong> in your email to deliver it. If no email opened, use Copy or Download above and send the text to services@djbey.com.</p></div>
+        </form>
+
+        <!-- FORM: IP TRUST -->
+        <form class="app-form" id="form-iptrust" data-branchname="IP Holding Trust — Intellectual Property Record" novalidate>
+          <div class="form-head">
+            <div><h3>IP Holding Trust — IP Record</h3><p>Deposit, license, or register intellectual property with Trust No. 2. Precision here protects the asset — record exactly what exists.</p></div>
+            <span class="status-pill open">Branch Unlocked ✓</span>
+          </div>
+
+          <div class="form-section-title">A · Owner Record</div>
+          <div class="fgrid">
+            <div class="field"><label>IP Owner — Full Legal Name / Entity <i>*</i></label><input name="IP Owner" required/></div>
+            <div class="field"><label>Owner Type</label>
+              <select name="Owner Type"><option>Individual</option><option>LLC</option><option>Corporation</option><option>Trust</option><option>Partnership</option></select></div>
+            <div class="field"><label>Email <i>*</i></label><input name="Email" type="email" required/></div>
+            <div class="field"><label>Phone <i>*</i></label><input name="Phone" type="tel" required/></div>
+            <div class="field"><label>Your Ownership Percentage <i>*</i></label><input name="Ownership Percent" required placeholder="e.g. 100%"/></div>
+            <div class="field"><label>Co-Owners (names &amp; shares)</label><input name="Co-Owners" placeholder="None, or list each with %"/></div>
+          </div>
+
+          <div class="form-section-title">B · The Asset</div>
+          <div class="fgrid">
+            <div class="field"><label>IP Title / Name <i>*</i></label><input name="IP Title" required/></div>
+            <div class="field"><label>IP Type <i>*</i></label>
+              <select name="IP Type" required><option value="">Select…</option><option>Trademark / Brand Mark</option><option>Copyright — Creative Work</option><option>Copyright — Music / Catalog</option><option>Patent</option><option>Trade Secret / Process</option><option>Game / Format IP</option><option>Character / Design</option><option>Domain / Digital Asset</option><option>Other</option></select></div>
+            <div class="field"><label>Registration Number</label><input name="Registration Number" placeholder="If registered — USPTO / Copyright Office no."/></div>
+            <div class="field"><label>Registration Jurisdiction</label><input name="Registration Jurisdiction" placeholder="e.g. USPTO, U.S. Copyright Office, State"/></div>
+            <div class="field"><label>Date Created / First Used</label><input name="Date Created" placeholder="Month / Year"/></div>
+            <div class="field"><label>Current Status</label>
+              <select name="Current Status"><option>Registered &amp; active</option><option>Application pending</option><option>In use, unregistered</option><option>Created, not yet in use</option></select></div>
+            <div class="field full"><label>Full Description of the IP <i>*</i></label><textarea name="IP Description" required placeholder="What the asset is, what it covers, where it is used, and what makes it distinct…"></textarea></div>
+          </div>
+
+          <div class="form-section-title">C · Intent &amp; Terms Sought</div>
+          <div class="fgrid">
+            <div class="field"><label>Purpose of This Submission <i>*</i></label>
+              <select name="Purpose" required><option value="">Select…</option><option>Deposit IP into the Trust for protection</option><option>License my IP to Foundry ventures</option><option>Request a license to Trust-held IP</option><option>Register IP for incubator use</option></select></div>
+            <div class="field"><label>IP You Wish to License (if license-out request)</label><input name="License Target" placeholder="Name the Trust asset, if applicable"/></div>
+            <div class="field"><label>Licensing Preference</label>
+              <select name="Licensing Preference"><option>Non-exclusive</option><option>Exclusive</option><option>Field-of-use exclusive</option><option>Open to terms</option></select></div>
+            <div class="field"><label>Existing Licenses or Encumbrances</label><input name="Existing Licenses" placeholder="None, or describe"/></div>
+            <div class="field"><label>Valuation Expectation</label>
+              <select name="Valuation"><option>To be appraised</option><option>Under $25K</option><option>$25K – $100K</option><option>$100K – $500K</option><option>$500K+</option><option>Royalty-based only</option></select></div>
+            <div class="field"><label>Proof of Ownership Available?</label>
+              <select name="Proof of Ownership"><option>Yes — registration certificate</option><option>Yes — assignment / creation records</option><option>Partial — will provide on request</option><option>Not yet documented</option></select></div>
+            <div class="field full"><label>Additional Notes for the Trustees</label><textarea name="Notes" style="min-height:70px"></textarea></div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-gold">Prepare Application Email →</button>
+            <button type="button" class="btn btn-outline" data-copy="iptrust">Copy Application Text</button>
+            <button type="button" class="btn btn-outline" data-download="iptrust">Download .txt</button>
+            <span class="submit-note">Submitting opens your email client with the completed IP record addressed to the founders. Nothing is stored on this page.</span>
+          </div>
+          <div class="success-box" id="success-iptrust"><h4>IP record prepared.</h4><p>Your email should now be open with the completed record. Press <strong>Send</strong> in your email to deliver it. If no email opened, use Copy or Download above and send the text to services@djbey.com.</p></div>
+        </form>
+
+        <!-- FORM: INCUBATOR -->
+        <form class="app-form" id="form-incubator" data-branchname="The Incubator — Venture Application" novalidate>
+          <div class="form-head">
+            <div><h3>The Incubator — Venture Application</h3><p>Resources for equity, priced through the Equity Engine. State plainly what the venture is, what it needs, and what it offers.</p></div>
+            <span class="status-pill open">Branch Unlocked ✓</span>
+          </div>
+
+          <div class="form-section-title">A · Venture Record</div>
+          <div class="fgrid">
+            <div class="field"><label>Business Legal Name <i>*</i></label><input name="Business Name" required/></div>
+            <div class="field"><label>Brand / Product Name</label><input name="Brand Name"/></div>
+            <div class="field"><label>Entity Type</label>
+              <select name="Entity Type"><option>LLC</option><option>Corporation</option><option>Sole Proprietorship</option><option>Trust</option><option>Not yet formed</option></select></div>
+            <div class="field"><label>Industry <i>*</i></label>
+              <select name="Industry" required><option value="">Select…</option><option>Media / Entertainment</option><option>Technology / Software</option><option>Apparel / Consumer Brand</option><option>Gaming</option><option>Food &amp; Beverage</option><option>Education</option><option>Health / Wellness</option><option>Agriculture</option><option>Real Estate / Housing</option><option>Other</option></select></div>
+            <div class="field"><label>Stage <i>*</i></label>
+              <select name="Stage" required><option value="">Select…</option><option>Idea — not yet built</option><option>Prototype / MVP</option><option>Launched — pre-revenue</option><option>Revenue-generating</option><option>Scaling</option></select></div>
+            <div class="field"><label>Location (City, State)</label><input name="Location"/></div>
+            <div class="field"><label>Website / Social</label><input name="Website" placeholder="https:// or @handle"/></div>
+            <div class="field"><label>Team Size</label>
+              <select name="Team Size"><option>Solo founder</option><option>2 – 5</option><option>6 – 15</option><option>16+</option></select></div>
+            <div class="field full"><label>Business Description <i>*</i></label><textarea name="Business Description" required placeholder="What the business does, who it serves, and how it makes money…"></textarea></div>
+            <div class="field full"><label>Problem Solved &amp; Distinction</label><textarea name="Problem Solved" style="min-height:80px" placeholder="The problem, your solution, and why you win…"></textarea></div>
+          </div>
+
+          <div class="form-section-title">B · Founder Record</div>
+          <div class="fgrid">
+            <div class="field"><label>Lead Founder Full Name <i>*</i></label><input name="Founder Name" required/></div>
+            <div class="field"><label>Founder Email <i>*</i></label><input name="Email" type="email" required/></div>
+            <div class="field"><label>Founder Phone <i>*</i></label><input name="Phone" type="tel" required/></div>
+            <div class="field"><label>How Did You Reach the Incubator?</label>
+              <select name="Intake Path"><option>Open application</option><option>Hand-picked / invited by a founder</option><option>Referred by a member</option><option>Stone Heart Media partner</option></select></div>
+            <div class="field"><label>Inviting Founder / Referrer</label><input name="Referrer"/></div>
+            <div class="field"><label>Founder Background (brief)</label><input name="Founder Background" placeholder="Relevant experience in one line"/></div>
+          </div>
+
+          <div class="form-section-title">C · Traction &amp; Numbers</div>
+          <div class="fgrid">
+            <div class="field"><label>Current Revenue</label>
+              <select name="Current Revenue"><option>None yet</option><option>Under $10K total</option><option>$10K – $100K</option><option>$100K – $500K</option><option>$500K+</option></select></div>
+            <div class="field"><label>Customers / Users to Date</label><input name="Customers" placeholder="Number or description"/></div>
+            <div class="field"><label>Capital Raised to Date</label><input name="Capital Raised" placeholder="$ amount or 'None'"/></div>
+            <div class="field"><label>Pitch Deck Reference</label><input name="Pitch Deck" placeholder="Link, or 'Available on request'"/></div>
+          </div>
+
+          <div class="form-section-title">D · Resources Requested &amp; Equity Offered</div>
+          <div class="field full" style="margin-bottom:6px"><label>Resources Requested from the Network (select all that apply)</label></div>
+          <div class="checks" style="grid-column:1/-1">
+            <label class="check-item"><input type="checkbox" name="Resource" value="Capital access / funding introductions"/> Capital access &amp; funding introductions</label>
+            <label class="check-item"><input type="checkbox" name="Resource" value="Media production (Stone Heart)"/> Media production — Stone Heart</label>
+            <label class="check-item"><input type="checkbox" name="Resource" value="Brand & design services"/> Brand &amp; design services</label>
+            <label class="check-item"><input type="checkbox" name="Resource" value="Technology / digital suite"/> Technology &amp; digital suite</label>
+            <label class="check-item"><input type="checkbox" name="Resource" value="IP licensing from the Trust"/> IP licensing from the Trust</label>
+            <label class="check-item"><input type="checkbox" name="Resource" value="Distribution & network access"/> Distribution &amp; network access</label>
+            <label class="check-item"><input type="checkbox" name="Resource" value="Legal / trust structuring guidance"/> Legal &amp; trust structuring guidance</label>
+            <label class="check-item"><input type="checkbox" name="Resource" value="Mentorship & operations"/> Mentorship &amp; operations support</label>
+          </div>
+          <div class="fgrid" style="margin-top:16px">
+            <div class="field"><label>Equity Prepared to Offer <i>*</i></label>
+              <select name="Equity Offered" required><option value="">Select…</option><option>Under 5%</option><option>5% – 10%</option><option>10% – 20%</option><option>20% – 35%</option><option>35%+</option><option>Revenue share instead of equity</option><option>Open — price it through the Equity Engine</option></select></div>
+            <div class="field"><label>Preferred Sub-Model</label>
+              <select name="Sub-Model Preference"><option>No preference — Engine's recommendation</option><option>Service-for-equity</option><option>License + equity</option><option>Revenue share</option><option>Network tier</option><option>Milestone-based equity</option></select></div>
+            <div class="field full"><label>What Success Looks Like in 12 Months <i>*</i></label><textarea name="12-Month Vision" required style="min-height:80px" placeholder="If the Foundry pours in the resources above, where is this venture in one year?"></textarea></div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-gold">Prepare Application Email →</button>
+            <button type="button" class="btn btn-outline" data-copy="incubator">Copy Application Text</button>
+            <button type="button" class="btn btn-outline" data-download="incubator">Download .txt</button>
+            <span class="submit-note">Submitting opens your email client with the completed application addressed to the founders. Nothing is stored on this page.</span>
+          </div>
+          <div class="success-box" id="success-incubator"><h4>Application prepared.</h4><p>Your email should now be open with the completed venture application. Press <strong>Send</strong> in your email to deliver it. If no email opened, use Copy or Download above and send the text to services@djbey.com.</p></div>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section>
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">The Process</div>
+        <h2>From token to record in three steps</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><b>01</b><h3>Receive your token</h3><p>A founder issues you the token for your branch — one token per branch, shared only with those invited to submit. Keep it private; it is your key to the section.</p></div>
+        <div class="step"><b>02</b><h3>Complete the documentation</h3><p>Open your branch above, enter the token, and complete the full form. Answer precisely — the founders review from this record, and incomplete submissions are returned.</p></div>
+        <div class="step"><b>03</b><h3>Send &amp; await review</h3><p>Your application opens in your own email, addressed to the founders at services@djbey.com. Send it, retain your copy, and await word on next steps and any document exchange.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDER REFERENCE -->
+  <section class="founder-ref" id="founder-reference">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Token Distribution</div>
+        <h2>How tokens are issued</h2>
+        <p>Tokens are never published on this portal. A founder issues each member the token for their branch only — privately, by direct message or in person. A member receives one token, for one branch. If a token is ever compromised, the founders rotate it and the new token replaces the old across the portal in a single edit.</p>
+      </div>
+      <div style="overflow-x:auto">
+      <table class="ref-table">
+        <thead><tr><th style="width:30%">Branch</th><th style="width:24%">Access</th><th>Who Receives a Token</th></tr></thead>
+        <tbody>
+          <tr><td><strong>01 · The Foundry — Core Registry</strong></td><td>Token — issued privately</td><td>Founders, trustees, beneficiaries, and members entering the master registry.</td></tr>
+          <tr><td><strong>02 · Stone Heart Media</strong></td><td>Token — issued privately</td><td>Brands and companies invited to propose a joint venture.</td></tr>
+          <tr><td><strong>03 · IP Holding Trust</strong></td><td>Token — issued privately</td><td>Creators and owners depositing, licensing, or requesting intellectual property.</td></tr>
+          <tr><td><strong>04 · The Incubator</strong></td><td>Token — issued privately</td><td>Ventures applying openly or hand-picked for resources-for-equity intake.</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p style="margin-top:16px;font-size:13.5px;color:var(--muted)">All applications from every branch are delivered to one inbox: <a href="mailto:services@djbey.com" style="color:var(--gold2);font-weight:700">services@djbey.com</a> — each email's subject line names its branch and applicant, so the founders can file by branch at a glance.</p>
+    </div>
+  </section>
+
+  <!-- STANDARDS -->
+  <section id="standards">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Documentation Standards</div>
+        <h2>What every submission must meet</h2>
+        <p>The standard is uniform across branches, so a record taken in once can be recognized everywhere in the house.</p>
+      </div>
+      <div class="doc-grid">
+        <div class="doc-card">
+          <h3>Identity &amp; Authority</h3>
+          <ul>
+            <li>Legal names exactly as they appear on government or formation documents</li>
+            <li>Only the last four characters of any ID number on this portal — full documents move privately after intake</li>
+            <li>Business submissions must come from a person authorized to bind the entity</li>
+            <li>One current email and one current phone per record — the founders reply to these</li>
+          </ul>
+        </div>
+        <div class="doc-card">
+          <h3>Accuracy &amp; Review</h3>
+          <ul>
+            <li>Every figure stated — revenue, audience, ownership — must be supportable on request</li>
+            <li>Ownership percentages across all owners must total 100%</li>
+            <li>Incomplete or inconsistent records are returned for completion before review</li>
+            <li>Submission is an application, not an acceptance; terms are set only in signed writing</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <strong>The Foundry</strong>
+      <p>Parent fraternal organization · Stone Heart Media Trust · IP Holding Trust · The Incubator. Applications and records are received at <a href="mailto:services@djbey.com">services@djbey.com</a>.</p>
+    </div>
+    <div style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;line-height:2">
+      <a href="#structure" style="text-decoration:none;color:#c9c4b4">Structure</a><br>
+      <a href="#branches" style="text-decoration:none;color:#c9c4b4">Branches</a><br>
+      <a href="#apply" style="text-decoration:none;color:#c9c4b4">Apply with Token</a>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(function(){
+  var FOUNDER_EMAIL = "services@djbey.com";
+  var BRANCHES = {
+    foundry:   { token:"FND-CORE-7K92",   title:"The Foundry — Core Registry",            short:"The Foundry" },
+    stoneheart:{ token:"SHM-JV-4R81",  title:"Stone Heart Media — Joint Ventures",     short:"Stone Heart Media" },
+    iptrust:   { token:"IPT-HOLD-9T35",     title:"IP Holding Trust — Intellectual Property", short:"IP Holding Trust" },
+    incubator: { token:"INC-VENT-6M47",    title:"The Incubator — Venture Intake",         short:"The Incubator" }
+  };
+  var current = "foundry";
+  var unlocked = {};
+
+  var gate = document.getElementById("gate");
+  var gateTitle = document.getElementById("gateTitle");
+  var gateError = document.getElementById("gateError");
+  var tokenInput = document.getElementById("tokenInput");
+  var toast = document.getElementById("toast");
+  var toastTimer = null;
+
+  function showToast(msg){
+    toast.textContent = msg;
+    toast.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toast.classList.remove("show"); }, 3200);
+  }
+
+  function selectBranch(key, scroll){
+    current = key;
+    var tabs = document.querySelectorAll(".tab");
+    for (var i=0;i<tabs.length;i++){ tabs[i].classList.toggle("active", tabs[i].getAttribute("data-branch")===key); }
+    var forms = document.querySelectorAll(".app-form");
+    for (var j=0;j<forms.length;j++){ forms[j].classList.remove("visible"); }
+    gateError.style.display = "none";
+    tokenInput.value = "";
+    if (unlocked[key]) {
+      gate.style.display = "none";
+      document.getElementById("form-"+key).classList.add("visible");
+    } else {
+      gate.style.display = "block";
+      gateTitle.textContent = BRANCHES[key].title;
+    }
+    if (scroll) {
+      document.getElementById("apply").scrollIntoView({behavior:"smooth", block:"start"});
+    }
+  }
+
+  // Tabs
+  var tabEls = document.querySelectorAll(".tab");
+  for (var t=0;t<tabEls.length;t++){
+    tabEls[t].addEventListener("click", function(){ selectBranch(this.getAttribute("data-branch"), false); });
+  }
+  // Branch card buttons
+  var gotoEls = document.querySelectorAll("[data-goto]");
+  for (var g=0;g<gotoEls.length;g++){
+    gotoEls[g].addEventListener("click", function(){ selectBranch(this.getAttribute("data-goto"), true); });
+  }
+
+  // Gate submit
+  document.getElementById("gateForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    var entered = tokenInput.value.trim().toUpperCase();
+    if (entered === BRANCHES[current].token) {
+      unlocked[current] = true;
+      var pill = document.querySelector('[data-status="'+current+'"]');
+      if (pill) { pill.textContent = "Unlocked — Form Open Below"; pill.classList.add("open"); }
+      selectBranch(current, false);
+      showToast(BRANCHES[current].short + " unlocked. The documentation form is open.");
+    } else {
+      gateError.style.display = "block";
+      tokenInput.focus();
+    }
+  });
+
+  // Build plain-text application from a form
+  function collectText(form){
+    var branchName = form.getAttribute("data-branchname");
+    var lines = [];
+    lines.push("FOUNDRY APPLICATION — " + branchName.toUpperCase());
+    lines.push("Submitted via the Founders Portal · " + new Date().toLocaleString());
+    lines.push("========================================");
+    var fd = new FormData(form);
+    var seen = {};
+    fd.forEach(function(value, key){
+      var v = (value||"").toString().trim();
+      if (!v) return;
+      if (seen[key]) { lines[seen[key]] += ", " + v; }
+      else { seen[key] = lines.length; lines.push(key + ": " + v); }
+    });
+    // Include unchecked-resource note handling: checkboxes only appear when checked (FormData behavior) — correct.
+    lines.push("========================================");
+    lines.push("End of application.");
+    return lines.join("\n");
+  }
+
+  function applicantName(form){
+    var fd = new FormData(form);
+    var candidates = ["Full Legal Name","Contact Name","IP Owner","Founder Name","Company Legal Name","Business Name"];
+    for (var i=0;i<candidates.length;i++){
+      var v = fd.get(candidates[i]);
+      if (v && v.toString().trim()) return v.toString().trim();
+    }
+    return "Applicant";
+  }
+
+  function wireForm(key){
+    var form = document.getElementById("form-"+key);
+    if (!form) return;
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      // Native required validation
+      var invalid = form.querySelectorAll("[required]");
+      for (var i=0;i<invalid.length;i++){
+        if (!invalid[i].value || !invalid[i].value.trim()){
+          invalid[i].focus();
+          invalid[i].scrollIntoView({behavior:"smooth", block:"center"});
+          showToast("Please complete the required field: " + (invalid[i].name || "field"));
+          return;
+        }
+      }
+      var text = collectText(form);
+      var subject = "[Foundry Application] " + BRANCHES[key].short + " — " + applicantName(form);
+      var href = "mailto:" + FOUNDER_EMAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(text);
+      var box = document.getElementById("success-"+key);
+      if (box) box.classList.add("show");
+      var mailLink = document.createElement("a");
+      mailLink.href = href;
+      document.body.appendChild(mailLink);
+      mailLink.click();
+      mailLink.remove();
+      showToast("Your email is opening with the completed application. Press Send there to deliver it.");
+    });
+  }
+  ["foundry","stoneheart","iptrust","incubator"].forEach(wireForm);
+
+  // Copy / download buttons
+  document.addEventListener("click", function(e){
+    var copyKey = e.target.getAttribute && e.target.getAttribute("data-copy");
+    var dlKey = e.target.getAttribute && e.target.getAttribute("data-download");
+    if (copyKey) {
+      var f1 = document.getElementById("form-"+copyKey);
+      copyText(collectText(f1), "Application text copied. Paste it into an email to " + FOUNDER_EMAIL + ".");
+    }
+    if (dlKey) {
+      var f2 = document.getElementById("form-"+dlKey);
+      var blob = new Blob([collectText(f2)], {type:"text/plain"});
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement("a");
+      a.href = url;
+      a.download = "foundry-application-" + dlKey + ".txt";
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(function(){ URL.revokeObjectURL(url); }, 2000);
+      showToast("Application downloaded as a text file.");
+    }
+  });
+
+  function copyText(text, msg){
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function(){ showToast(msg); }, function(){ fallbackCopy(text, msg); });
+    } else { fallbackCopy(text, msg); }
+  }
+  function fallbackCopy(text, msg){
+    var ta = document.createElement("textarea");
+    ta.value = text; ta.style.position="fixed"; ta.style.opacity="0";
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand("copy"); showToast(msg); } catch(err){ showToast("Copy failed — use the Download button instead."); }
+    ta.remove();
+  }
+
+  selectBranch("foundry", false);
+})();
+</script>
+</body>
+</html>
